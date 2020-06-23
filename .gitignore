@@ -1,5 +1,6 @@
-# czi file
-
+# image files
+*.png
+*.tiff
 *.czi
 
 # Byte-compiled / optimized / DLL files
