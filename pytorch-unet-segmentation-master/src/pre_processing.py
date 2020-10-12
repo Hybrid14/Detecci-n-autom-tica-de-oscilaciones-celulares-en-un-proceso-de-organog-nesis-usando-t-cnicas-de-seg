@@ -181,8 +181,8 @@ def multi_cropping(image, crop_size, crop_num1, crop_num2):
     img_height, img_width = image.shape[0], image.shape[1]
     assert crop_size*crop_num1 >= img_width and crop_size * \
         crop_num2 >= img_height, "Whole image cannot be sufficiently expressed"
-    assert crop_num1 <= img_width - crop_size + 1 and crop_num2 <= img_height - \
-        crop_size + 1, "Too many number of crops"
+    assert crop_num1 <= img_width - crop_size + 2 and crop_num2 <= img_height - \
+        crop_size + 2, "Too many number of crops"
 
     cropped_imgs = []
     # int((img_height - crop_size)/(crop_num1 - 1))
