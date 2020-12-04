@@ -15,5 +15,8 @@ def preprocesing(read,load):
         i_p= cv2.bilateralFilter(i, 5, 75, 75)
         i_p= cv2.equalizeHist(i_p)
         preprocesada.append(i_p)
-        plt.imsave(join(load, str(x)+".png"), i_p, cmap='gray')
+        if(x<10):
+            plt.imsave(join(load, '0'+str(x)+".png"), i_p, cmap='gray')
+        else:
+            plt.imsave(join(load, str(x)+".png"), i_p, cmap='gray')
     return(original,preprocesada)
