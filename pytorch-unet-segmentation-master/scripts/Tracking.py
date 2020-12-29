@@ -42,8 +42,11 @@ def vecinosMasCercanos(watershed,water_list,cell_idx,paramDist):
                     areaCelulaAnterior = size_cell[iterator-1]
                     if (areaCelulaActual < areaCelulaAnterior/paramArea) or (areaCelulaActual> areaCelulaAnterior*paramArea):
                         size_cell.append(areaCelulaAnterior)
+                        #size_cell.append(np.nan)
+                    
                     else:
                         size_cell.append(areaCelulaActual)
+                  
                 else:
                     size_cell.append(areaCelulaActual) 
             # update cell coords
