@@ -20,9 +20,9 @@ def postprocesing(claudio_loader, modelo, paramThresh):
             img = output[0].detach().numpy().astype('uint8')*255
             img_list.append(img)
             ret, bin_image = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-            closing = cv2.morphologyEx(bin_image, cv2.MORPH_CLOSE, kernel, iterations=1)
-            sure_bg = cv2.dilate(closing, kernel1, iterations=1)
-            dist_transform = cv2.distanceTransform(closing, cv2.DIST_L2, 5)
+            #closing = cv2.morphologyEx(bin_image, cv2.MORPH_CLOSE, kernel, iterations=1)
+            sure_bg = cv2.dilate(bin_image, kernel1, iterations=1)#closing
+            dist_transform = cv2.distanceTransform(bin_image, cv2.DIST_L2, 5)
             ret, sure_fg = cv2.threshold(dist_transform, paramThresh*dist_transform.max(), 255, 0)
             sure_fg = np.uint8(sure_fg)
             unknown = cv2.subtract(sure_bg, sure_fg)
